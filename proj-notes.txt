@@ -4,3 +4,4 @@ amb-1\Scripts\activate
 USEFUL LINKS
 https://www.django-rest-framework.org/topics/html-and-forms/
 https://www.bezkoder.com/django-angular-13-crud/
+https://docs.djangoproject.com/en/5.0/ref/models/fields/
