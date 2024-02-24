@@ -1,2 +1,6 @@
 Set-ExecutionPolicy Unrestricted -Scope Process
 amb-1\Scripts\activate
+
+USEFUL LINKS
+https://www.django-rest-framework.org/topics/html-and-forms/
+https://www.bezkoder.com/django-angular-13-crud/
