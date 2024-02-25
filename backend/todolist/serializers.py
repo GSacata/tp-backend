@@ -4,4 +4,4 @@ from todolist.models import Task
 class TaskSerializer (serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id','title','is_done','created']
+        fields = ['id','title','description','is_done','created','last_update']
