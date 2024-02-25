@@ -1,1 +1,24 @@
-<p>Hello world!</p>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List B</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <section>
+        <div>
+            <h1>Todo List</h1>
+            <h3>Django + Django REST</h3>
+        </div>
+        <div>
+            <a href="/todo">Todo List</a>
+        </div>
+        <div>
+            <p class="test-text">If you're seeing this page, then it means the project using Django and Django REST, along with Angular, didn't work.</p>
+        </div>
+    </section>
+</body>
+</html>

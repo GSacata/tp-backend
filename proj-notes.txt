@@ -29,3 +29,4 @@ https://docs.djangoproject.com/en/5.0/ref/models/fields/
 https://www.django-rest-framework.org/api-guide/viewsets/
 https://www.youtube.com/watch?v=5dzZF6jWLb4&list=PLsTx8TSx2fHY01FnuxBdwiBiOdZdPGik7&index=2
 https://www.youtube.com/watch?v=BjxBtw5CW68&list=PLsTx8TSx2fHY01FnuxBdwiBiOdZdPGik7&index=6 -> https://youtu.be/BjxBtw5CW68?list=PLsTx8TSx2fHY01FnuxBdwiBiOdZdPGik7&t=390
+https://docs.djangoproject.com/en/5.0/howto/static-files/
