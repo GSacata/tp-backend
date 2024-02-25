@@ -22,6 +22,7 @@ from rest_framework import generics
 from todolist.models import Task
 from todolist.serializers import TaskSerializer
 from rest_framework.views import APIView
+from django.shortcuts import render
 ...
 
 # FUNCTION-BASED VIEWS
@@ -103,6 +104,9 @@ from rest_framework.views import APIView
 
 
 # CLASS-BASED VIEWS, GENERICS
+
+def get_home_page(request):
+    return render(request, "home.html")
 class TaskListAndCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
