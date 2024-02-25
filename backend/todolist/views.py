@@ -17,12 +17,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound
+from rest_framework import generics
 
 from todolist.models import Task
 from todolist.serializers import TaskSerializer
 from rest_framework.views import APIView
 ...
 
+# FUNCTION-BASED VIEWS
 # @api_view(['GET', 'POST'])
 # def task_list(request):
 #     if request.method == 'GET':
@@ -59,41 +61,52 @@ from rest_framework.views import APIView
 #         task.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class TaskListAndCreate(APIView):
-    def get(self, request):
-        tasklist = Task.objects.all()
-        serializer = TaskSerializer(tasklist, many=True)
-        return Response(serializer.data)
+# CLASS-BASED VIEWS
+# class TaskListAndCreate(APIView):
+#     def get(self, request):
+#         tasklist = Task.objects.all()
+#         serializer = TaskSerializer(tasklist, many=True)
+#         return Response(serializer.data)
     
-    def post(self, request):
-        serializer = TaskSerializer(data = request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request):
+#         serializer = TaskSerializer(data = request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class TaskDetailUpdateAndDelete(APIView):
-    def valid_object(self, pk):
-        try:
-            return Task.objects.get(pk=pk)
-        except Task.DoesNotExist:
-            raise NotFound()
+# class TaskDetailUpdateAndDelete(APIView):
+#     def valid_object(self, pk):
+#         try:
+#             return Task.objects.get(pk=pk)
+#         except Task.DoesNotExist:
+#             raise NotFound()
         
-    def get(self, request, pk):
-        task = self.valid_object(pk)
-        serializer = TaskSerializer(task)
-        return Response(serializer.data)
+#     def get(self, request, pk):
+#         task = self.valid_object(pk)
+#         serializer = TaskSerializer(task)
+#         return Response(serializer.data)
     
-    def put(self, request, pk):
-        task = self.valid_object(pk)
-        serializer = TaskSerializer(task, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def put(self, request, pk):
+#         task = self.valid_object(pk)
+#         serializer = TaskSerializer(task, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def delete(self, request, pk):
-        task = self.valid_object(pk)
-        task.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#     def delete(self, request, pk):
+#         task = self.valid_object(pk)
+#         task.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# CLASS-BASED VIEWS, GENERICS
+class TaskListAndCreate(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+class TaskDetailUpdateAndDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
