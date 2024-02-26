@@ -28,6 +28,16 @@
                 </div>
             {% endfor %}
         </ul>
+        <div>
+            <div class="task">
+                <form method="post">
+                    {% csrf_token %}
+                    <span class="material-symbols-outlined">radio_button_unchecked</span>
+                    <input type="text" name="title">
+                    <button type="submit" onclick="TaskListAndCreate()">Create Task</button>
+                </form>
+            </div>
+        </div>
     </section>
     
     
