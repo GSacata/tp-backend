@@ -133,3 +133,10 @@ def get_todolist_detail(request, pk):
         'task': task,
     }
     return HttpResponse(template.render(context, request))
+
+def post_task(request, pk):
+    serializer = TaskSerializer(data = request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

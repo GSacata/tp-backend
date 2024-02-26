@@ -30,11 +30,11 @@
         </ul>
         <div>
             <div class="task">
-                <form method="post">
+                <form method="post" action="{{id}}/">
                     {% csrf_token %}
                     <span class="material-symbols-outlined">radio_button_unchecked</span>
                     <input type="text" name="title">
-                    <button type="submit" onclick="TaskListAndCreate()">Create Task</button>
+                    <input type="submit" value="Save">
                 </form>
             </div>
         </div>
