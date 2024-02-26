@@ -21,7 +21,8 @@
                     {% else %}
                         <span class="material-symbols-outlined">radio_button_checked</span>
                     {% endif %}
-                    <span class="tasktitle">{{item.title}}</span>
+                    <!-- <span class="tasktitle">{{item.title}}</span> -->
+                    <a class="tasktitle" href="./{{item.id}}">{{item.title}}</a>
                 </div>
             {% endfor %}
         </ul>

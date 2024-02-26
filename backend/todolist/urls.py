@@ -8,7 +8,7 @@
 # ]
 
 from django.urls import path
-from todolist.views import TaskListAndCreate, TaskDetailUpdateAndDelete, get_todolist_all
+from todolist.views import TaskListAndCreate, TaskDetailUpdateAndDelete, get_todolist_all, get_todolist_detail
 
 # urlpatterns = [
 #     path('', TaskListAndCreate.as_view()),
@@ -17,5 +17,5 @@ from todolist.views import TaskListAndCreate, TaskDetailUpdateAndDelete, get_tod
 
 urlpatterns = [
     path('', get_todolist_all),
-    path('<pk>/', get_todolist_all)
+    path('<pk>/', get_todolist_detail)
 ]

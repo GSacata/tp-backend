@@ -125,3 +125,11 @@ def get_todolist_all(request):
         'tasklist': tasklist    
     }
     return HttpResponse(template.render(context, request))
+
+def get_todolist_detail(request, pk):
+    task = Task.objects.get(pk=pk)
+    template = loader.get_template('todolist/todolist_templates/todolist_detail.html')
+    context = {
+        'task': task,
+    }
+    return HttpResponse(template.render(context, request))
