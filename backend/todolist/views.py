@@ -23,6 +23,8 @@ from todolist.models import Task
 from todolist.serializers import TaskSerializer
 from rest_framework.views import APIView
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
 ...
 
 # FUNCTION-BASED VIEWS
@@ -105,8 +107,8 @@ from django.shortcuts import render
 
 # CLASS-BASED VIEWS, GENERICS
 
-def get_home_page(request):
-    return render(request, "home.html")
+# def get_home_page(request):
+#     return render(request, "home.html")
 class TaskListAndCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
@@ -114,3 +116,12 @@ class TaskListAndCreate(generics.ListCreateAPIView):
 class TaskDetailUpdateAndDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+
+def get_todolist_all(request):
+    tasklist = Task.objects.all().values()
+    template = loader.get_template('todolist/todolist_templates/todolist.html')
+    context = {
+        'tasklist': tasklist    
+    }
+    return HttpResponse(template.render(context, request))

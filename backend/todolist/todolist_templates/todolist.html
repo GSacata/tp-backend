@@ -6,6 +6,11 @@
     <title>Todo List B</title>
 </head>
 <body>
+    <ul>
+        {% for item in tasklist %}
+            <li>{{item.title}}</li>
+        {% endfor %}
+    </ul>
     
 </body>
 </html>
