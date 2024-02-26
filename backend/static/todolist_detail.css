@@ -22,6 +22,10 @@ p, a, div, h1, h2, h3, h4, h5, h6 {
   'opsz' 24
 }
 
+.pagecontainer {
+    width: 600px;
+}
+
 .task {
     border: solid 2px black;
     border-radius: 25px;

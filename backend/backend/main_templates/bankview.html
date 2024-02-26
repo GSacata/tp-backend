@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List B</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bankview.css' %}">
+</head>
+<body>
+    <section class="bank">
+        <a href="/">Home</a>
+        <p>Bankview shows every saved data, in order to easen the review process.</p>
+        <div class="bankcontainer">
+            <table class="banktable">
+                <tr>
+                    <td>id</td>
+                    <td>title</td>
+                    <td>description</td>
+                    <td>is_done</td>
+                    <td>created</td>
+                    <td>last_update</td>
+                </tr>
+                {% for item in taskbank %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.is_done}}</td>
+                    <td>{{item.created}}</td>
+                    <td>{{item.last_update}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+    </section>
+</body>
+</html>

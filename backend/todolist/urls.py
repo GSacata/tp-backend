@@ -17,5 +17,5 @@ from todolist.views import TaskListAndCreate, TaskDetailUpdateAndDelete, get_tod
 
 urlpatterns = [
     path('', get_todolist_all),
-    path('<pk>/', get_todolist_detail)
+    path('<pk>/', get_todolist_detail),
 ]

@@ -12,27 +12,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <div class="task">
-        <div class="taskid">ID: {{task.id}}</div>
-        <div class="tasktitle">
-            {% if item.is_done == False %}
-                <span class="material-symbols-outlined">radio_button_unchecked</span>
-            {% else %}
-                <span class="material-symbols-outlined">radio_button_checked</span>
-            {% endif %}
-            <span class="tasktitle">{{task.title}}</span>
-            <span class="material-symbols-outlined">delete</span>
-        </div>
-        <div class="taskdesc">
-            {% if task.description %}
-                {{task.description}}
-            {% else %}
-                <p class="task-nodesc">No description</p>
-            {% endif %}
-        </div>
-        <div class="taskotherinfo">
-            <div><p>Created: {{task.created|date:"d / m / Y"}}</p></div>
-            <div><p>Last Update: {{task.last_update|date:"d / m / Y"}}</p></div>
+    <div class="pagecontainer">
+        <a href="/todo">Back</a>
+        <div class="task">
+            <div class="taskid">ID: {{task.id}}</div>
+            <div class="tasktitle">
+                {% if task.is_done == False %}
+                    <span class="material-symbols-outlined">radio_button_unchecked</span>
+                {% else %}
+                    <span class="material-symbols-outlined">radio_button_checked</span>
+                {% endif %}
+                <span class="tasktitle">{{task.title}}</span>
+                <span class="material-symbols-outlined">delete</span>
+            </div>
+            <div class="taskdesc">
+                {% if task.description %}
+                    {{task.description}}
+                {% else %}
+                    <p class="task-nodesc">No description</p>
+                {% endif %}
+            </div>
+            <div class="taskotherinfo">
+                <div><p>Created: {{task.created|date:"d / m / Y"}}</p></div>
+                <div><p>Last Update: {{task.last_update|date:"d / m / Y"}}</p></div>
+            </div>
         </div>
     </div>
     
